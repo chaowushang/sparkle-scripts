@@ -186,6 +186,7 @@ proxy-groups:
   # ===================== 社交 & 即时通讯 =====================
   - { name: Twitter,    <<: *SelectSL, icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Twitter.png }
   - { name: Telegram,   <<: *SelectSL, icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png }
+  - { name: WhatsApp,   <<: *SelectSL, icon: https://fastly.jsdelivr.net/gh/Semporia/Hand-Painted-icon@master/Social_Media/WhatsApp.png }
 
   # ===================== 游戏 & 下载 =====================
   - { name: Steam,      <<: *SelectSL, icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Steam.png }
@@ -287,6 +288,7 @@ rule-providers:
   # 域名规则集
   Advertising:    { <<: *BehaviorDN, url: https://fastly.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/adblockmihomolite.mrs }
   spotify-ads:    { <<: *BehaviorDN, url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify-ads.mrs }
+  google-ads:     { <<: *BehaviorDN, url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google-ads.mrs }
   China:          { <<: *BehaviorDN, url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cn.mrs }
   Claude:         { <<: *BehaviorDN, url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/anthropic.mrs }
   Disney:         { <<: *BehaviorDN, url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/disney.mrs }
@@ -302,6 +304,7 @@ rule-providers:
   Steam:          { <<: *BehaviorDN, url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam.mrs }
   Spotify:        { <<: *BehaviorDN, url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify.mrs }
   TikTok:         { <<: *BehaviorDN, url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tiktok.mrs }
+  WhatsApp:       { <<: *BehaviorDN, url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/whatsapp.mrs }
   Twitter:        { <<: *BehaviorDN, url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/x.mrs }
   Telegram:       { <<: *BehaviorDN, url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.mrs }
   YouTube:        { <<: *BehaviorDN, url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/youtube.mrs }
@@ -323,6 +326,7 @@ rules:
   # 域名规则集-按照优先级顺序排列
   - RULE-SET,Advertising,REJECT
   - RULE-SET,spotify-ads,REJECT
+  - RULE-SET,google-ads,REJECT
   - RULE-SET,Github,Github
   - RULE-SET,OpenAI,OpenAI
   - RULE-SET,Gemini,Gemini
@@ -333,6 +337,7 @@ rules:
   - RULE-SET,Spotify,Spotify
   - RULE-SET,YouTube,YouTube
   - RULE-SET,TikTok,TikTok
+  - RULE-SET,WhatsApp,WhatsApp
   - RULE-SET,OneDrive,OneDrive
   - RULE-SET,Microsoft,Microsoft
   - RULE-SET,Netflix,Netflix
