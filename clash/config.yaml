@@ -121,10 +121,10 @@ BaseCR: &BaseCR { type: load-balance, interval: 200, lazy: true, url: 'https://w
 BaseCH: &BaseCH { type: load-balance, interval: 200, lazy: true, url: 'https://www.google.com/generate_204', hidden: true, strategy: consistent-hashing, include-all: true }
 
 # 代理组锚点
-SelectUL: &SelectUL { type: select, proxies: [ 香港, 台湾, 澳门, 狮城, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 越南, 泰国, 澳洲, 巴西, 土耳其, 阿根廷, 冷门节点, DIRECT, REJECT ], include-all: true }
-SelectTW: &SelectTW { type: select, proxies: [ 台湾, 香港, 澳门, 狮城, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 越南, 泰国, 澳洲, 巴西, 土耳其, 阿根廷, 冷门节点, DIRECT, REJECT, 手动选择 ] }
-SelectUS: &SelectUS { type: select, proxies: [ 美国, 香港, 台湾, 澳门, 狮城, 日本, 韩国, 英国, 德国, 法国, 印度, 越南, 泰国, 澳洲, 巴西, 土耳其, 阿根廷, 冷门节点, DIRECT, REJECT, 手动选择 ] }
-SelectSL: &SelectSL { type: select, proxies: [ 手动选择, 香港, 台湾, 澳门, 狮城, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 越南, 泰国, 澳洲, 巴西, 土耳其, 阿根廷, 冷门节点, DIRECT, REJECT ] }
+SelectUL: &SelectUL { type: select, proxies: [ 香港, 台湾, 澳门, 狮城, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 越南, 印尼, 泰国, 澳洲, 巴西, 荷兰, 土耳其, 阿根廷, 冷门节点, DIRECT, REJECT ], include-all: true }
+SelectTW: &SelectTW { type: select, proxies: [ 台湾, 香港, 澳门, 狮城, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 越南, 印尼, 泰国, 澳洲, 巴西, 荷兰, 土耳其, 阿根廷, 冷门节点, DIRECT, REJECT, 手动选择 ] }
+SelectUS: &SelectUS { type: select, proxies: [ 美国, 香港, 台湾, 澳门, 狮城, 日本, 韩国, 英国, 德国, 法国, 印度, 越南, 印尼, 泰国, 澳洲, 巴西, 荷兰, 土耳其, 阿根廷, 冷门节点, DIRECT, REJECT, 手动选择 ] }
+SelectSL: &SelectSL { type: select, proxies: [ 手动选择, 香港, 台湾, 澳门, 狮城, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 越南, 印尼, 泰国, 澳洲, 巴西, 荷兰, 土耳其, 阿根廷, 冷门节点, DIRECT, REJECT ] }
 SelectDR: &SelectDR { type: select, proxies: [ DIRECT, REJECT ], hidden: true }
 SelectCS: &SelectCS { type: select, lazy: true, include-all: true, hidden: true }
 
@@ -203,10 +203,12 @@ proxy-groups:
   - { name: 德国,       <<: *SelectCS, filter: *FilterDE, proxies: [ 德国自动, 德国均衡-散列, 德国均衡-轮询 ], icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Germany.png }
   - { name: 法国,       <<: *SelectCS, filter: *FilterFR, proxies: [ 法国自动, 法国均衡-散列, 法国均衡-轮询 ], icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/France.png }
   - { name: 印度,       <<: *SelectCS, filter: *FilterIN, proxies: [ 印度自动, 印度均衡-散列, 印度均衡-轮询 ], icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/India.png }
+  - { name: 印尼,       <<: *SelectCS, filter: *FilterID, proxies: [ 印尼自动, 印尼均衡-散列, 印尼均衡-轮询 ], icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Indonesia.webp }
   - { name: 越南,       <<: *SelectCS, filter: *FilterVN, proxies: [ 越南自动, 越南均衡-散列, 越南均衡-轮询 ], icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Vietnam.png }
   - { name: 泰国,       <<: *SelectCS, filter: *FilterTH, proxies: [ 泰国自动, 泰国均衡-散列, 泰国均衡-轮询 ], icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Thailand.png }
   - { name: 澳洲,       <<: *SelectCS, filter: *FilterAU, proxies: [ 澳洲自动, 澳洲均衡-散列, 澳洲均衡-轮询 ], icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Australia.png }
   - { name: 巴西,       <<: *SelectCS, filter: *FilterBR, proxies: [ 巴西自动, 巴西均衡-散列, 巴西均衡-轮询 ], icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Brazil.png }
+  - { name: 荷兰,       <<: *SelectCS, filter: *FilterNL, proxies: [ 荷兰自动, 荷兰均衡-散列, 荷兰均衡-轮询 ], icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Netherlands.png }
   - { name: 土耳其,     <<: *SelectCS, filter: *FilterTU, proxies: [ 土耳其自动, 土耳其均衡-散列, 土耳其均衡-轮询 ], icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Turkey.png }
   - { name: 阿根廷,     <<: *SelectCS, filter: *FilterAR, proxies: [ 阿根廷自动, 阿根廷均衡-散列, 阿根廷均衡-轮询 ], icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Argentina.png }
 # 除了常用的地区，其他地区都放这里
@@ -224,10 +226,12 @@ proxy-groups:
   - { name: 德国自动,       <<: *BaseUT, filter: *FilterDE, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Germany.png }
   - { name: 法国自动,       <<: *BaseUT, filter: *FilterFR, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/France.png }
   - { name: 印度自动,       <<: *BaseUT, filter: *FilterIN, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/India.png }
+  - { name: 印尼自动,       <<: *BaseUT, filter: *FilterID, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Indonesia.png }
   - { name: 越南自动,       <<: *BaseUT, filter: *FilterVN, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Vietnam.png }
   - { name: 泰国自动,       <<: *BaseUT, filter: *FilterTH, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Thailand.png }
   - { name: 澳洲自动,       <<: *BaseUT, filter: *FilterAU, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Australia.png }
   - { name: 巴西自动,       <<: *BaseUT, filter: *FilterBR, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Brazil.png }
+  - { name: 荷兰自动,       <<: *BaseUT, filter: *FilterNL, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Netherlands.png }
   - { name: 土耳其自动,     <<: *BaseUT, filter: *FilterTU, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Turkey.png }
   - { name: 阿根廷自动,     <<: *BaseUT, filter: *FilterAR, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Argentina.png }
 
@@ -243,10 +247,12 @@ proxy-groups:
   - { name: 德国均衡-散列,       <<: *BaseCH, filter: *FilterDE, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Germany.png }
   - { name: 法国均衡-散列,       <<: *BaseCH, filter: *FilterFR, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/France.png }
   - { name: 印度均衡-散列,       <<: *BaseCH, filter: *FilterIN, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/India.png }
+  - { name: 印尼均衡-散列,       <<: *BaseCH, filter: *FilterID, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Indonesia.png }
   - { name: 越南均衡-散列,       <<: *BaseCH, filter: *FilterVN, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Vietnam.png }
   - { name: 泰国均衡-散列,       <<: *BaseCH, filter: *FilterTH, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Thailand.png }
   - { name: 澳洲均衡-散列,       <<: *BaseCH, filter: *FilterAU, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Australia.png }
   - { name: 巴西均衡-散列,       <<: *BaseCH, filter: *FilterBR, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Brazil.png }
+  - { name: 荷兰均衡-散列,       <<: *BaseCH, filter: *FilterNL, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Netherlands.png }
   - { name: 土耳其均衡-散列,     <<: *BaseCH, filter: *FilterTU, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Turkey.png }
   - { name: 阿根廷均衡-散列,     <<: *BaseCH, filter: *FilterAR, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Argentina.png }
 
@@ -262,10 +268,12 @@ proxy-groups:
   - { name: 德国均衡-轮询,       <<: *BaseCR, filter: *FilterDE, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Germany.png }
   - { name: 法国均衡-轮询,       <<: *BaseCR, filter: *FilterFR, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/France.png }
   - { name: 印度均衡-轮询,       <<: *BaseCR, filter: *FilterIN, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/India.png }
+  - { name: 印尼均衡-轮询,       <<: *BaseCR, filter: *FilterID, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Indonesia.png }
   - { name: 越南均衡-轮询,       <<: *BaseCR, filter: *FilterVN, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Vietnam.png }
   - { name: 泰国均衡-轮询,       <<: *BaseCR, filter: *FilterTH, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Thailand.png }
   - { name: 澳洲均衡-轮询,       <<: *BaseCR, filter: *FilterAU, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Australia.png }
   - { name: 巴西均衡-轮询,       <<: *BaseCR, filter: *FilterBR, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Brazil.png }
+  - { name: 荷兰均衡-轮询,       <<: *BaseCR, filter: *FilterNL, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Netherlands.png }
   - { name: 土耳其均衡-轮询,     <<: *BaseCR, filter: *FilterTU, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Turkey.png }
   - { name: 阿根廷均衡-轮询,     <<: *BaseCR, filter: *FilterAR, icon: https://fastly.jsdelivr.net/gh/wanswu/Qure@master/IconSet/Color/Argentina.png }
 
